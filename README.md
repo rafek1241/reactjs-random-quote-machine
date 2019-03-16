@@ -1,5 +1,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+Simple application which use quotes API to fetch random quotes and have possibility to tweet this quotes.
+
 ## Available Scripts
 
 In the project directory, you can run:
