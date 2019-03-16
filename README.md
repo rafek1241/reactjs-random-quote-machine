@@ -1,6 +1,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 Simple application which use quotes API to fetch random quotes and have possibility to tweet this quotes.
+[![Netlify Status](https://api.netlify.com/api/v1/badges/4ea73d6a-ec9c-434e-8881-fde1a9a6ec18/deploy-status)](https://app.netlify.com/sites/modest-bassi-7f1568/deploys)
 
 ## Available Scripts
 
