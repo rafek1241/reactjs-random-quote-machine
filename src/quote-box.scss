@@ -1,0 +1,9 @@
+@import "colors";
+
+#quote-box {
+  min-width: 30vw;
+  min-height: 10vh;
+  border: 0.5rem solid lighten(map-get($map: $colors, $key: 1), 10%);
+  background: map-get($map: $colors, $key: 1);
+  padding: 1rem;
+}
