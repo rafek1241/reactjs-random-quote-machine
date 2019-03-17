@@ -7,7 +7,7 @@ export default class NewQuoteButton extends React.Component<{onClick:()=>void}> 
     return (
       <button
         id="new-quote"
-        className="btn btn-light btn-sm float-right"
+        className="btn btn-primary btn-sm float-right"
         onClick={this.props.onClick}
       >
         New quote

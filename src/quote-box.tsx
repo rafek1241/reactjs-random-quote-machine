@@ -2,25 +2,37 @@ import React, { Component } from "react";
 import "./quote-box.scss";
 import NewQuoteButton from "./new-quote-button";
 
-class QuoteBox extends Component<{}, { quote: string; author: string }> {
+class QuoteBox extends Component<
+  {},
+  { quote: string; author: string; blockquoteAnimClass: string }
+> {
   constructor(props: any) {
     super(props);
 
     this.state = {
       quote: "",
-      author: ""
+      author: "",
+      blockquoteAnimClass: ""
     };
 
     this.fetchNewQuote = this.fetchNewQuote.bind(this);
   }
 
   async fetchNewQuote() {
+    this.setState({
+      blockquoteAnimClass: "fade-out"
+    });
     const res = await fetch("https://favqs.com/api/qotd");
     const json = await res.json();
-    this.setState({
-      quote: json.quote.body,
-      author: json.quote.author
-    });
+    setTimeout(
+      () =>
+        this.setState({
+          quote: json.quote.body,
+          author: json.quote.author,
+          blockquoteAnimClass: "fade-in"
+        }),
+      250
+    );
   }
 
   async componentDidMount() {
@@ -33,7 +45,9 @@ class QuoteBox extends Component<{}, { quote: string; author: string }> {
         <div className="container">
           <div className="row">
             <div className="col">
-              <blockquote className="blockquote">
+              <blockquote
+                className={`"blockquote" ${this.state.blockquoteAnimClass}`}
+              >
                 <Text quote={this.state.quote} />
                 <Author author={this.state.author} />
               </blockquote>
@@ -60,7 +74,7 @@ class QuoteBox extends Component<{}, { quote: string; author: string }> {
 const TweetButton = (props: any) => (
   <a
     id="tweet-quote"
-    className="btn btn-light btn-sm"
+    className="btn btn-primary btn-sm"
     href={`https://twitter.com/intent/tweet?hashtags=${
       props.hashtags
     }&related=${props.related}&text=${props.text}`}
