@@ -7,3 +7,17 @@
   background: map-get($map: $colors, $key: 1);
   padding: 1rem;
 }
+
+blockquote {
+  height: auto;
+  transition: all 0.4s ease-in-out;
+
+  opacity: 1;
+  &.fade-out {
+    opacity: 0;
+  }
+
+  &.fade-in {
+    opacity: 1;
+  }
+}
